@@ -14,7 +14,7 @@ namespace ConsoleApp4
     {
         //declaring the global variables
 
-        static int[] Steps = new int[3];
+       // static int[] Steps = new int[3];
         // static String[] unitm = new String[3];
 
         static Ingredient objingre = new Ingredient();
