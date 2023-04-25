@@ -31,7 +31,10 @@ namespace ConsoleApp4
             get;set;
 
         }
-        public double ScaleQuantityyy { get; set; }
+        public double ScaleQuantityyy
+        {
+            get; set;
+        }
 
     }
 }
