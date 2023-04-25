@@ -14,25 +14,24 @@ namespace ConsoleApp4
         private string ingName;
         private int quan;
         private string unitm;
-
+        private double ScaleQuantity;
         public string IngName 
         {
-            get { return ingName; }
-            set { ingName = value; }
+            get;set;
             
         }
-        public int Quantity
+        public double Quantity
         {
-            get { return quan; }
-            set { quan = value; }
+            get;set;
+            
 
         }
         public string UnitM
         {
-            get { return unitm; }
-            set { unitm = value; }
+            get;set;
 
         }
+        public double ScaleQuantityyy { get; set; }
 
     }
 }

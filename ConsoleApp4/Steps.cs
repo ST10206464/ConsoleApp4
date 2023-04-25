@@ -14,15 +14,12 @@ namespace ConsoleApp4
 
         public int NumOfsteps
         {
-            get { return numofsteps; }
-            set { numofsteps = value; }
+            get; set;
 
         }
         public string Description
         {
-            get { return descr; }
-            set { descr = value; }
-
+            get;set;
         }
     }
 }
