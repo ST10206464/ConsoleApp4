@@ -4,6 +4,7 @@ using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,7 +27,7 @@ namespace ConsoleApp4
         static string[] arrIngredientName;
         static double[] arrQuantiyy;
         static string[] arrUnitM;
-        static string[] arrDescription; static double[] arrScaledQuantity;
+        static string[] arrDescription;
         static void Main(string[] args)
         {
 
@@ -105,6 +106,11 @@ namespace ConsoleApp4
             Console.ResetColor();
             //reset
             Console.WriteLine("\n");
+
+            Menu();
+        }
+        public static void Menu()
+        {
             int myMenu = 0;
             while (myMenu != 3)
             {
@@ -113,7 +119,7 @@ namespace ConsoleApp4
                     "\n2. Clear" +
                     "\n3. Exit or Add new Recipe");
 
-                myMenu=Convert.ToInt32(Console.ReadLine());
+                myMenu = Convert.ToInt32(Console.ReadLine());
 
                 if (myMenu == 1)
                 {
@@ -121,7 +127,7 @@ namespace ConsoleApp4
                         "\n1 Scale by Factor 0.5(half)" +
                         "\n2. Scale by Factor 2 (double) " +
                         "\n3. Scale by factor 3 (tripple)");
-                    int ScaleOptions=Convert.ToInt32(Console.ReadLine());
+                    int ScaleOptions = Convert.ToInt32(Console.ReadLine());
                     if (ScaleOptions == 1)
                     {
                         for (int i = 0; i < arrIngredient.Length; i++)
@@ -182,7 +188,7 @@ namespace ConsoleApp4
                         }
                     }
                 }
-                else if(myMenu == 2)
+                else if (myMenu == 2)
                 {
                     Console.WriteLine("Do you to clear :yes/no");
                     string clear = Console.ReadLine();
@@ -195,22 +201,129 @@ namespace ConsoleApp4
                             {
                                 //methods to clear my data
 
-                                Array.Clear(arrIngredientName,0,arrIngredientName.Length);
-                                Array.Clear(arrQuantiyy,0,arrQuantiyy.Length);
+                                Array.Clear(arrIngredientName, 0, arrIngredientName.Length);
+                                Array.Clear(arrQuantiyy, 0, arrQuantiyy.Length);
                                 Array.Clear(arrUnitM, 0, arrUnitM.Length);
 
                                 Array.Clear(arrDescription, 0, arrDescription.Length);
                                 Console.Clear();
-                                    
-                                
+                                Console.WriteLine("Data Deleted!!");
+                                Console.WriteLine("ingredient Name : " +arrIngredientName[k]+ "\n");
+                                Console.WriteLine("Quntity :" + arrQuantiyy[k]+ "\n");
+                                Console.WriteLine("Unit Measurement : " + arrUnitM[k] + "\n");
+                                Console.WriteLine("Description : " + arrDescription[j] + "\n");
+
                             }
 
                         }
                     }
                 }
+                else if (myMenu == 3) {
+
+                    Console.WriteLine("Press 1 to addNewRecipe Or Press 2 to Exit");
+                    int exit =Convert.ToInt32(Console.ReadLine());
+
+
+                    if(exit == 1) {
+                        for (int k = 0; k < arrIngredient.Length; k++)
+                        {
+                            for (int j = 0; j < arsteps.Length; j++)
+                            {
+                                //methods to clear my data
+
+                                Array.Clear(arrIngredientName, 0, arrIngredientName.Length);
+                                Array.Clear(arrQuantiyy, 0, arrQuantiyy.Length);
+                                Array.Clear(arrUnitM, 0, arrUnitM.Length);
+
+                                Array.Clear(arrDescription, 0, arrDescription.Length);
+                                Console.Clear();
+
+
+                            }
+
+                        }
+                        ///this will be for adding new Recipe
+                        // prompt the user to enter the number of ingredients
+                        Console.WriteLine("Please enter the number of ingredients");
+                        int numofing = Convert.ToInt32(Console.ReadLine());
+                        arrIngredient = new Ingredient[numofing];
+
+
+                        //ingredients details
+                        arrIngredientName = new string[numofing];
+                        arrQuantiyy = new double[numofing];
+                        arrUnitM = new string[numofing];
+
+                        for (int i = 0; i < numofing; i++)
+                        {
+
+
+                            Console.WriteLine("Enter the name of ingredient :" + (i + 1));
+                            string IngName = Console.ReadLine();
+                            Console.WriteLine("Enter the quantity of the ingredient" + " ");
+                            double Quantity = Convert.ToDouble(Console.ReadLine());
+                            Console.WriteLine("Enter the unit of measurement of" + " ");
+                            string UnitM = Console.ReadLine();
+
+
+                            objingre.IngName = IngName;
+                            objingre.Quantity = Quantity;
+                            objingre.UnitM = UnitM;
+
+
+                            arrIngredientName[i] = objingre.IngName;
+                            arrQuantiyy[i] = objingre.Quantity;
+                            arrUnitM[i] = objingre.UnitM;
+                            Console.WriteLine(arrIngredientName[i] + ":" + "Sucessfully saved!");
+                        }
+
+
+                        // prompt the user to enter number of steps
+                        Console.WriteLine("\n");
+                        Console.WriteLine("Please enter the number of steps");
+                        objsteps.NumOfsteps = Convert.ToInt32(Console.ReadLine());
+
+                        arsteps = new Steps[objsteps.NumOfsteps];
+                        arrDescription = new string[objsteps.NumOfsteps];
+                        //steps details
+                        for (int k = 0; k < arsteps.Length; k++)
+                        {
+
+                            Console.WriteLine("Enter the description" + (k + 1));
+                            string Description = Console.ReadLine();
+                            objsteps.Description = Description;
+
+                            arrDescription[k] = objsteps.Description;
+
+                        }
+                        // output of the ingredient
+                        Console.WriteLine("\n");
+                        for (int p = 0; p < arrIngredient.Length; p++)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Blue;
+                            Console.WriteLine("******INGREDIENTS user output******* \n" +
+                                "The ingredient name is :" + arrIngredientName[p] + "\n" +
+                                "The quantity is :" + arrQuantiyy[p] + "\n" +
+                                "The unit of measurement is :" + arrUnitM[p]);
+
+                        }
+                        //output of the steps
+                        Console.WriteLine("\n");
+                        for (int j = 0; j < arrDescription.Length; j++)
+                        {
+                            Console.WriteLine("********STEPS user output************\n" +
+                                "The description is : " + arrDescription[j]);
+
+                        }
+                        Console.ResetColor();
+                        Program.Menu();
+
+                    } 
+                }
 
             }//closing my while loop 
-        }
+
+        }//closing my Menu
     }
 }
  
