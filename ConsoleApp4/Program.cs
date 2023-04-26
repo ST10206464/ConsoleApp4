@@ -208,10 +208,10 @@ namespace ConsoleApp4
                                 Array.Clear(arrDescription, 0, arrDescription.Length);
                                 Console.Clear();
                                 Console.WriteLine("Data Deleted!!");
-                                Console.WriteLine("ingredient Name has been deleted : " +arrIngredientName[k]+ "\n");
-                                Console.WriteLine("Quntity has been deleted :" + arrQuantiyy[k]+ "\n");
-                                Console.WriteLine("Unit Measurement has been deleted : " + arrUnitM[k] + "\n");
-                                Console.WriteLine("Description has been deleted : " + arrDescription[j] + "\n");
+                                Console.WriteLine("ingredient Name : " +arrIngredientName[k]+ "\n");
+                                Console.WriteLine("Quntity :" + arrQuantiyy[k]+ "\n");
+                                Console.WriteLine("Unit Measurement : " + arrUnitM[k] + "\n");
+                                Console.WriteLine("Description : " + arrDescription[j] + "\n");
 
                             }
 
