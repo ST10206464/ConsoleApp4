@@ -130,6 +130,7 @@ namespace ConsoleApp4
                     int ScaleOptions = Convert.ToInt32(Console.ReadLine());
                     if (ScaleOptions == 1)
                     {
+                        Console.ForegroundColor = ConsoleColor.Blue;
                         for (int i = 0; i < arrIngredient.Length; i++)
                         {
                             objingre.ScaleQuantityyy = arrQuantiyy[i] * 0.5;
@@ -153,7 +154,7 @@ namespace ConsoleApp4
                             objingre.ScaleQuantityyy = arrQuantiyy[i] * 3;
                             Console.WriteLine(arrIngredientName[i] + " :" + arrQuantiyy[i] + ":" + " Scaled to " + objingre.ScaleQuantityyy);
                         }
-
+                       // Console.ResetColor();
                     }
                     else { }
 
