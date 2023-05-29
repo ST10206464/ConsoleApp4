@@ -14,3 +14,5 @@ If yes your data will be deleted
 option 3 is exit and add new reciept
 It either you press exit or add new reciept
 
+#PART2 i added generic collection to store my ingredient details .I can now be able to enter unlimited recipe.I also used delagate method to notify the user if thieir calories is more than 300 .The program works the same as part 1
+
