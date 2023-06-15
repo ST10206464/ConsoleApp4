@@ -22,6 +22,7 @@ namespace ConsoleApp4
         static List<int> Listofsteps = new List<int>();
         static List<string> ListDescription = new List<string>();
         static List<double> ListofScaleQuantityyy = new List<double>();
+        static List <string> FoodDescRIPTION= new List<string>();
 
         delegate bool CheckNum(double num);
 
